@@ -22,11 +22,8 @@ export class AppComponent {
   num1: number = 10;
   termsAndConditions: boolean = true;
   student: any = 10;
-  person1:Person = new Person();
+  // person1:Person = new Person();
   
 }
 
-class Person {
-  Name:string;
-  Address:string;
-}
+
