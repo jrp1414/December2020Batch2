@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>One way Examples</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" (input)="OneWayChange($event)" placeholder="Enter Text">
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{OnewayMessage}}</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" (click)="OnewayMessage='One Way Tested'">One Way Test</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>Two way Examples</h3>
+            <!-- <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="TwowayMessage" placeholder="Enter Text">
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{TwowayMessage}}</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" (click)="TwowayMessage='Two Way Tested'">Two Way Test</button>
+                </div>
+            </div> -->
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <!-- <input type="text" class="form-control" [ngModel]="TwowayMessage" (ngModelChange)="TwowayMessage=$event" placeholder="Enter Text"> -->
+                        <input type="text" class="form-control" [ngModel]="TwowayMessage" (ngModelChange)="TwowayChange($event)" placeholder="Enter Text">
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{TwowayMessage}}</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" (click)="TwowayMessage='Two Way Tested'">Two Way Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
