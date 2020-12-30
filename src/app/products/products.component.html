@@ -1,0 +1,26 @@
+<h2>Products List</h2>
+
+<table class="table table-bordered">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Release Date</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Availibility</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of products">
+                <td>{{prod.productId}}</td>
+                <td>{{prod.productName}}</td>
+                <td>{{prod.productCode}}</td>
+            </tr>
+            
+        </tbody>
+</table>
