@@ -38,7 +38,7 @@ export const productList:Product[] = [
         },
         "price": 19.95,
         "starRating": 1,
-        "currentAvailibility": true,
+        "currentAvailibility": false,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
     },
     {
@@ -60,6 +60,7 @@ export const productList:Product[] = [
         "description": { "descText": "Curved claw steel hammer", "emailId": "test@test.com" },
         "price": 8.9,
         "starRating": 3,
+        "currentAvailibility": true,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
     },
     {
@@ -70,6 +71,7 @@ export const productList:Product[] = [
         "description": { descText: "15-inch steel blade hand saw", "emailId": "test@test.com" },
         "price": 11.55787878,
         "starRating": 6,
+        "currentAvailibility": true,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
     },
     {
@@ -80,6 +82,7 @@ export const productList:Product[] = [
         "description": { descText: "Standard two-button video game controller", "emailId": "test@test.com" },
         "price": 35.957878,
         "starRating": 5,
+        "currentAvailibility": true,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
 ];

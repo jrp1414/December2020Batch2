@@ -4,7 +4,9 @@ import { Product, productList } from '../services/product';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styles: []
+  styleUrls: [
+    `./products.component.css`
+  ]
 })
 export class ProductsComponent {
   products: Product[] = productList;
@@ -27,5 +29,25 @@ export class ProductsComponent {
 
   }
 
+  getStyle(prod: Product) {
+    if (prod.currentAvailibility && prod.starRating > 3) {
+      return { backgroundColor: 'lime', color: 'maroon', fontWeight: 'bold' };
+    }
+  }
+
+  getClass(prod: Product) {
+    if (prod.starRating > 3) {
+      if (prod.currentAvailibility) {
+        // return "green font";
+        return ["green", "font"];
+      }
+      return "green";
+    } else if (prod.starRating <= 3) {
+      if (prod.currentAvailibility) {
+        return "red font";
+      }
+      return "red";
+    }
+  }
 
 }

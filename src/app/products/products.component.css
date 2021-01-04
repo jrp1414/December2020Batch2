@@ -1,0 +1,21 @@
+.green{
+    background-color: lime;
+    color: mediumblue;
+}
+.red{
+    background-color: crimson;
+    color: gold;    
+}
+
+.font{
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.base{
+    border-width: 2px;
+    border-color: gold;
+    border-style: dashed;
+}
