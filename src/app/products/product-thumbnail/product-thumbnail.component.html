@@ -1,0 +1,8 @@
+<div class="card border-success" style="height: 300px;">
+  <img class="card-img-top" [src]="product?.imageUrl" style="max-height: 150px;"  alt="">
+  <div class="card-body">
+    <h4 class="card-title">{{product.productName}}</h4>
+    <p class="card-text">{{product.description?.descText}}</p>
+    <button type="button" class="btn btn-primary" (click)="SendToParent()">Send to Parent</button>
+  </div>
+</div>

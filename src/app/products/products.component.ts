@@ -29,6 +29,10 @@ export class ProductsComponent {
 
   }
 
+  ReceivedData(data){
+    console.log(data);
+  }
+
   getStyle(prod: Product) {
     if (prod.currentAvailibility && prod.starRating > 3) {
       return { backgroundColor: 'lime', color: 'maroon', fontWeight: 'bold' };

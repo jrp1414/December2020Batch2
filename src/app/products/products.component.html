@@ -1,61 +1,10 @@
 <h2>Products List</h2>
 
+<div class="row">
+    <!-- <div *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4">
+        <product-thumbnail [product]="prod"></product-thumbnail>
+        <product-thumbnail [prd]="prod"></product-thumbnail>
+    </div> -->
 
-<table class="table table-bordered">
-    <thead class="thead-inverse">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Code</th>
-            <th>Release Date</th>
-            <th>Description</th>
-            <th>Email</th>
-            <th>Price</th>
-            <th>Rating</th>
-            <th>Availibility</th>
-            <th>Image</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- <tr 
-        [style.backgroundColor]="prod.starRating>3?'chartreuse':'crimson'" 
-        [style.color]="prod.starRating>3?'blue':'yellow'"
-        *ngFor="let prod of products"> -->
-        <!-- <tr [style.backgroundColor]="prod.starRating>3?'chartreuse':'crimson'"
-            [style.color]="prod.starRating>3?'blue':'yellow'" *ngFor="let prod of products"> -->
-        <!-- <tr [class.green]="prod.starRating>3"
-            [class.red]="prod.starRating<=3"
-             *ngFor="let prod of products"> -->
-        <!-- <tr [ngStyle]="{backgroundColor:prod.starRating>3?'chartreuse':'crimson',color:prod.starRating>3?'blue':'yellow'}" *ngFor="let prod of products"> -->
-        <!-- <tr [ngStyle]="getStyle(prod)" *ngFor="let prod of products">     -->
-        <!-- <tr class="base" [ngClass]="{green:prod.starRating>3, red:prod.starRating<=3,font:prod.currentAvailibility}"
-            *ngFor="let prod of products"> -->
-        <tr class="base" [ngClass]="getClass(prod)"
-            *ngFor="let prod of products">
-            <td>{{prod.productId}}</td>
-            <td>{{prod.productName}}</td>
-            <td>{{prod.productCode}}</td>
-            <td>{{prod.releaseDate}}</td>
-            <td>{{prod.description.descText}}</td>
-            <td>{{prod.description.emailId}}</td>
-            <td>{{prod.price}}</td>
-            <td [ngSwitch]="prod.starRating">
-                <span *ngSwitchCase="1">Very Bad</span>
-                <span *ngSwitchCase="2">Bad</span>
-                <span *ngSwitchCase="3">Average</span>
-                <span *ngSwitchCase="4">Good</span>
-                <span *ngSwitchCase="5">Very Good</span>
-                <span *ngSwitchDefault>NA</span>
-            </td>
-            <!-- <td>
-                <span [hidden]="prod.starRating <= 3">Good</span>
-                <span [hidden]="prod.starRating > 3">Bad</span>
-                <span *ngIf="prod.starRating > 3">Good</span>
-                <span *ngIf="prod.starRating <= 3">Bad</span>
-            </td> -->
-            <td>{{prod.currentAvailibility}}</td>
-            <td><img [src]="prod.imageUrl" width="75" height="75" alt=""></td>
-        </tr>
-
-    </tbody>
-</table>
+    <product-thumbnail [prd]="prod" (sendData)="ReceivedData($event)" *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail>
+</div>
