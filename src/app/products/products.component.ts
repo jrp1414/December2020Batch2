@@ -10,6 +10,7 @@ import { Product, productList } from '../services/product';
 })
 export class ProductsComponent {
   products: Product[] = productList;
+  filterText:string="";
   constructor() {
     // for (let i = 0; i < this.products.length; i++) {
     //   console.log(this.products[i]);

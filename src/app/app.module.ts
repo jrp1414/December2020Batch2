@@ -9,6 +9,8 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { TwowayBindingComponent } from './twoway-binding/twoway-binding.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
+import { ShortenPipe } from './shared/pipes/shorten.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 
@@ -20,7 +22,9 @@ import { ProductThumbnailComponent } from './products/product-thumbnail/product-
     EventBindingComponent,
     TwowayBindingComponent,
     ProductsComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

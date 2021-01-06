@@ -10,7 +10,7 @@ import { Product } from 'src/app/services/product';
 export class ProductThumbnailComponent {
   // @Input() product:Product;
   @Input("prd") product:Product;
-  @Output() sendData:EventEmitter<string> = new EventEmitter<string>();
+  @Output("sd") sendData:EventEmitter<string> = new EventEmitter<string>();
 
 
   constructor() { 

@@ -1,8 +1,11 @@
-<div class="card border-success" style="height: 300px;">
-  <img class="card-img-top" [src]="product?.imageUrl" style="max-height: 150px;"  alt="">
+<div class="card border-success">
+  <div style="width: 50px; height: 50px;"><img class="card-img-top" [src]="product?.imageUrl" style="max-width: 50px; width: auto;"  alt=""></div>
   <div class="card-body">
-    <h4 class="card-title">{{product.productName}}</h4>
-    <p class="card-text">{{product.description?.descText}}</p>
+    <h4 class="card-title">{{product.productName | uppercase }}</h4>
+    <p class="card-text">{{product.description?.descText | lowercase | shorten}}</p>
+    <p class="card-text">Release Date: {{product.releaseDate | date : 'MM/dd/yyyy' }}</p>
+    <p class="card-text">Price: {{product.price | currency :'INR':"code":'1.1-1' }}</p>
     <button type="button" class="btn btn-primary" (click)="SendToParent()">Send to Parent</button>
+    <!-- {{product |json}} -->
   </div>
 </div>

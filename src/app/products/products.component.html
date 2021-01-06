@@ -1,10 +1,22 @@
 <h2>Products List</h2>
 
 <div class="row">
+    <div class="col-md-2">
+        Filter Products:
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search Product">
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <!-- <div *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4">
         <product-thumbnail [product]="prod"></product-thumbnail>
         <product-thumbnail [prd]="prod"></product-thumbnail>
     </div> -->
 
-    <product-thumbnail [prd]="prod" (sendData)="ReceivedData($event)" *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail>
+    <!-- <product-thumbnail [prd]="prod" (sendData)="ReceivedData($event)" *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail> -->
+    <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)" *ngFor="let prod of products | filter : filterText" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail>
 </div>
