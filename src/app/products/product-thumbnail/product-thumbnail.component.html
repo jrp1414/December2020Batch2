@@ -2,6 +2,7 @@
   <div style="width: 50px; height: 50px;"><img class="card-img-top" [src]="product?.imageUrl" style="max-width: 50px; width: auto;"  alt=""></div>
   <div class="card-body">
     <h4 class="card-title">{{product.productName | uppercase }}</h4>
+    <h5 class="card-title">{{product.productCode | uppercase }}</h5>
     <p class="card-text">{{product.description?.descText | lowercase | shorten}}</p>
     <p class="card-text">Release Date: {{product.releaseDate | date : 'MM/dd/yyyy' }}</p>
     <p class="card-text">Price: {{product.price | currency :'INR':"code":'1.1-1' }}</p>

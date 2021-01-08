@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, productList } from '../services/product';
+import { Description, Product, productList } from '../services/product';
 
 @Component({
   selector: 'app-products',
@@ -32,6 +32,10 @@ export class ProductsComponent {
 
   ReceivedData(data){
     console.log(data);
+  }
+
+  TestPipe(){
+    this.products.push(new Product(11,"Test Pipe Product","GFN-0034",new Date('25/12/2020'),25.52,5,"",new Description("Sample Desc","test@gmail.com"),true));
   }
 
   getStyle(prod: Product) {
