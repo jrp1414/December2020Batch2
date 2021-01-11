@@ -1,5 +1,8 @@
 <h2>Products List</h2>
-
+<div basic-highlight>Basic Highlight</div> 
+<!-- <div better-highlight defaultColor="maroon">Better Highlight</div>  -->
+<div [better-highlight]="'chartreuse'" hc="yellow" >Better Highlight</div> 
+<!-- <div better-highlight="chartreuse" [hc]="'yellow'" >Better Highlight</div>  -->
 <div class="row">
     <div class="col-md-2">
         Filter Products:
@@ -9,7 +12,25 @@
           <input type="text" class="form-control" [(ngModel)]="filterText"  placeholder="Search Product">
         </div>
     </div>
-
+    <!-- <div *ngIf="filterText.length>0 else nofilter" class="col-md-2 alert alert-info">
+        {{filterText}}
+    </div> -->
+    <div *unless="filterText.length==0" class="col-md-2 alert alert-info">
+        {{filterText}}
+    </div>
+    <ng-template #nofilter>
+        <div class="col-md-2 alert alert-danger">
+            Enter Text
+        </div>
+    </ng-template>
+    <div class="col-md-2 alert alert-danger">
+        Enter Text
+    </div>
+    <!-- <ng-template [ngIf]="filterText.length>0">
+        <div class="col-md-2 alert alert-danger">
+            {{filterText}}
+        </div>
+    </ng-template> -->
     <div class="col-md-2">
         <button type="button" class="btn btn-primary" (click)="TestPipe()">Test Pipe</button>
     </div>

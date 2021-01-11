@@ -20,7 +20,8 @@ export class FilterPipe implements PipeTransform {
     let tempList: any[] = [];
     for (const column of filterColumns) {
       var filtered = list.filter((obj) => obj[column].toLowerCase().indexOf(filterText.toLowerCase()) != -1);
-      Array.prototype.push.apply(tempList,filtered);
+      // Array.prototype.push.apply(tempList,filtered);
+      tempList =[...tempList,...filtered];
       // tempList.push(filtered);
     }
 
