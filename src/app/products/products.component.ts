@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Description, Product, productList } from '../services/product';
+import { LoggerService } from '../services/logger.service';
+import { Description, Product } from '../services/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: [
     `./products.component.css`
+  ],
+  providers:[
+    // LoggerService,
+    //ProductService
   ]
 })
 export class ProductsComponent {
-  products: Product[] = productList;
+  products: Product[];
   filterText:string="";
-  constructor() {
+  constructor(private logger:LoggerService,private ps:ProductService) {
     // for (let i = 0; i < this.products.length; i++) {
     //   console.log(this.products[i]);
     // }
@@ -28,14 +34,17 @@ export class ProductsComponent {
     //   console.log(prod);
     // }
 
+    this.products = this.ps.getProducts();
   }
 
   ReceivedData(data){
+    this.logger.log("Logged from Parent Component");
     console.log(data);
   }
 
   TestPipe(){
-    this.products.push(new Product(11,"Test Pipe Product","GFN-0034",new Date('25/12/2020'),25.52,5,"",new Description("Sample Desc","test@gmail.com"),true));
+    this.ps.notify.emit("Notification sent");
+    //this.products.push(new Product(11,"Test Pipe Product","GFN-0034",new Date('25/12/2020'),25.52,5,"",new Description("Sample Desc","test@gmail.com"),true));
   }
 
   getStyle(prod: Product) {
@@ -60,3 +69,5 @@ export class ProductsComponent {
   }
 
 }
+
+

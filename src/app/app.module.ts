@@ -14,6 +14,9 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { BetterHighlightDirective } from './shared/directives/better-highlight.directive';
 import { UnlessDirective } from './shared/directives/unless.directive';
+import { TempProductsComponent } from './temp-products/temp-products.component';
+import { LoggerService } from './services/logger.service';
+import { ProductService } from './services/product.service';
 
 
 
@@ -30,13 +33,17 @@ import { UnlessDirective } from './shared/directives/unless.directive';
     FilterPipe,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    TempProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    LoggerService,
+    // ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
