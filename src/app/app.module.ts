@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { StringInterpolationComponent } from './string-interpolation/string-interpolation.component';
@@ -17,8 +18,15 @@ import { UnlessDirective } from './shared/directives/unless.directive';
 import { TempProductsComponent } from './temp-products/temp-products.component';
 import { LoggerService } from './services/logger.service';
 import { ProductService } from './services/product.service';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 
+const routes:Route[] = [
+  {path:"home",component:HomeComponent},
+  {path:"products",component: ProductsComponent},
+  
+];
 
 @NgModule({
   declarations: [
@@ -34,11 +42,14 @@ import { ProductService } from './services/product.service';
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    TempProductsComponent
+    TempProductsComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     LoggerService,
