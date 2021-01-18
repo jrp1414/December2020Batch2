@@ -1,7 +1,7 @@
 <h2>Products List</h2>
-<div basic-highlight>Basic Highlight</div> 
+<div basic-highlight>Basic Highlight</div>
 <!-- <div better-highlight defaultColor="maroon">Better Highlight</div>  -->
-<div [better-highlight]="'chartreuse'" hc="yellow" >Better Highlight</div> 
+<div [better-highlight]="'chartreuse'" hc="yellow">Better Highlight</div>
 <!-- <div better-highlight="chartreuse" [hc]="'yellow'" >Better Highlight</div>  -->
 <div class="row">
     <div class="col-md-2">
@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-2">
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="filterText"  placeholder="Search Product">
+            <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Search Product">
         </div>
     </div>
     <!-- <div *ngIf="filterText.length>0 else nofilter" class="col-md-2 alert alert-info">
@@ -44,5 +44,20 @@
 
     <!-- <product-thumbnail [prd]="prod" (sendData)="ReceivedData($event)" *ngFor="let prod of products" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail> -->
     <!-- <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)" *ngFor="let prod of products | filter : filterText" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail> -->
-    <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)" *ngFor="let prod of products | filter : filterText : 'productName':'productCode'" style="margin-bottom: 10px;" class="col-md-4"></product-thumbnail>
+
+    <!-- Example for Optional Parameter -->
+    <!-- <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)"
+        *ngFor="let prod of products | filter : filterText : 'productName':'productCode'" style="margin-bottom: 10px;"
+        [routerLink]="['/productdetails',prod.productId,{code:prod.productCode,name:prod.productName}]" class="col-md-4"></product-thumbnail> -->
+
+    <!-- Example for Query Parameters -->
+    <!-- <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)"
+        *ngFor="let prod of products | filter : filterText : 'productName':'productCode'" style="margin-bottom: 10px;"
+        [routerLink]="['/productdetails',prod.productId]" [queryParams]="{code:prod.productCode,name:prod.productName}" class="col-md-4"></product-thumbnail>     -->
+
+    <!-- Example for Fragments -->
+    <product-thumbnail [prd]="prod" (sd)="ReceivedData($event)"
+        *ngFor="let prod of products | filter : filterText : 'productName':'productCode'" style="margin-bottom: 10px;"
+        [routerLink]="['/productdetails',prod.productId]" [fragment]="prod.productCode" class="col-md-4">
+    </product-thumbnail>
 </div>

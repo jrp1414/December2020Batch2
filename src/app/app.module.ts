@@ -20,12 +20,15 @@ import { LoggerService } from './services/logger.service';
 import { ProductService } from './services/product.service';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 const routes:Route[] = [
+  {path:"",component: HomeComponent},
   {path:"home",component:HomeComponent},
   {path:"products",component: ProductsComponent},
-  
+  {path:"productdetails/:id",component: ProductDetailsComponent}, //productdetails/45
+  // {path:"**",redirectTo:"home"}
 ];
 
 @NgModule({
@@ -44,7 +47,8 @@ const routes:Route[] = [
     UnlessDirective,
     TempProductsComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

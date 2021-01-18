@@ -14,6 +14,11 @@ export class ProductService {
     this.ls.log("Get Products Called");
     return productList;
   }
+
+  getProduct(id:number):Product{
+    return productList.find((p)=>p.productId == id);
+  }
+
 }
 
 

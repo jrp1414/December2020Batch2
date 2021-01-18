@@ -1,0 +1,14 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">{{product.productName | uppercase}}</h1>
+        <p class="lead">{{product.productCode}}</p>
+        <hr class="my-2">
+        <p>{{product.releaseDate | date}}</p>
+        <img [src]="product.imageUrl" style="max-width: 200px; width: auto;" alt="">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" [routerLink]="['/productdetails', 5]"
+            role="button">Load Product 5</a>
+            <button type="button" class="btn btn-default" (click)="GoBack()">Back</button>
+        </p>
+    </div>
+</div>
