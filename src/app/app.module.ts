@@ -21,6 +21,7 @@ import { ProductService } from './services/product.service';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { StudentsModule } from './students/students.module';
 
 
 const routes:Route[] = [
@@ -53,6 +54,7 @@ const routes:Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
+    StudentsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
