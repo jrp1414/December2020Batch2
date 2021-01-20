@@ -1,1 +1,35 @@
-<p>student-details works!</p>
+<div class="card border-primary">
+  <div class="card-body">
+    <h4 class="card-title">{{student.FirstName + " "+student.LastName}}</h4>
+    <p class="card-text">Mobile No : {{student.MobileNo}}</p>
+    <p class="card-text">Email Id : {{student.EmailId}}</p>
+    <div class="card-text">
+        <h5>Address : </h5>
+        <div class="row">
+            <div class="col-md-4">
+                Line 1 : {{student.Address.AddLine1}}   
+            </div>
+            <div class="col-md-4">
+                Line 2 : {{student.Address.AddLine2}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Line 3 : {{student.Address.AddLine3}}
+            </div>
+            <div class="col-md-4">
+                City : {{student.Address.City}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                State : {{student.Address.State}}
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-secondary" [routerLink]="['edit']" >Edit</button>
+  </div>
+</div>
