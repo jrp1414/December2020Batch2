@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { StudentsModule } from './students/students.module';
+import { SignupComponent } from './signup/signup.component';
 
 
 const routes:Route[] = [
@@ -29,6 +30,7 @@ const routes:Route[] = [
   {path:"home",component:HomeComponent},
   {path:"products",component: ProductsComponent},
   {path:"productdetails/:id",component: ProductDetailsComponent}, //productdetails/45
+  {path:"signup",component: SignupComponent},
   // {path:"**",redirectTo:"home"}
 ];
 
@@ -49,7 +51,8 @@ const routes:Route[] = [
     TempProductsComponent,
     HeaderComponent,
     HomeComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<form #signup="ngForm" (ngSubmit)="OnSubmit()" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="FirstName">First Name</label>
+                <input type="text" class="form-control" name="FirstName" ngModel id="FirstName" aria-describedby="helpId" placeholder="First Name">
+                <small id="helpId" class="form-text text-muted">Enter First Name</small>
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="LastName">Last Name</label>
+                <input type="text" class="form-control" name="LastName" id="LastName" ngModel aria-describedby="helpId" placeholder="Last Name">
+                <small id="helpId" class="form-text text-muted">Enter Last Name</small>
+              </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
