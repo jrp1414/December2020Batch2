@@ -7,7 +7,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SignupComponent implements OnInit,AfterViewInit {
 
-  @ViewChild("signup") signUpForm;
+  // @ViewChild("signup") signUpForm;
   constructor() { }
   ngAfterViewInit(): void {
     //console.log(this.signUpForm);
@@ -17,8 +17,12 @@ export class SignupComponent implements OnInit,AfterViewInit {
     
   }
 
-  OnSubmit(){
-    console.log(this.signUpForm);
+  // OnSubmit(){
+  //   console.log(this.signUpForm);
+  // }
+
+  OnSubmit(value){
+    console.log(value); 
   }
 
 }

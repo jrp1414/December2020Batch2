@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { StudentsModule } from './students/students.module';
 import { SignupComponent } from './signup/signup.component';
+import { MaxMinDirective } from './shared/directives/max-min.directive';
 
 
 const routes:Route[] = [
@@ -52,7 +53,8 @@ const routes:Route[] = [
     HeaderComponent,
     HomeComponent,
     ProductDetailsComponent,
-    SignupComponent
+    SignupComponent,
+    MaxMinDirective
   ],
   imports: [
     BrowserModule,
