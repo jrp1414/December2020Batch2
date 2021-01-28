@@ -1,1 +1,21 @@
-<p>student-edit works!</p>
+<div class="container">
+    <form [formGroup]="studentEditForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="FirstName">First Name</label>
+                  <input type="text" class="form-control" formControlName="FirstName" id="FirstName" aria-describedby="helpId" placeholder="First Name">
+                  <small id="helpId" class="form-text text-muted">First Name</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" class="form-control" id="LastName" formControlName="LastName" aria-describedby="helpId" placeholder="Last Name">
+                    <small id="helpId" class="form-text text-muted">Last Name</small>
+                  </div>
+            </div> 
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
