@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Student } from '../services/student.data';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'app-student-edit',
@@ -11,14 +14,18 @@ export class StudentEditComponent implements OnInit {
   studentEditForm:FormGroup;
   // firstName:FormControl = new FormControl();
   // lastName:FormControl = new FormControl();
-
-  constructor() { }
+  student:Student;
+  constructor(private route:ActivatedRoute,private ss:StudentService) { }
 
   ngOnInit(): void {
-    this.studentEditForm = new FormGroup({
-      FirstName: new FormControl(),
-      LastName: new FormControl() 
+    this.route.params.subscribe((parms)=>{
+      this.student = this.ss.getStudent(parms.id);
+      this.studentEditForm = new FormGroup({
+        FirstName: new FormControl(this.student.FirstName),
+        LastName: new FormControl("acsdsv") 
+      }); 
     });
+    
   }
 
   onSubmit(){
