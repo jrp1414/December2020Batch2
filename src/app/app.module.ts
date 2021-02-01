@@ -56,7 +56,7 @@ const routes:Route[] = [
     BrowserModule,
     FormsModule,
     StudentsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     LoggerService,
