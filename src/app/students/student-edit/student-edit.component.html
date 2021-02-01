@@ -80,13 +80,16 @@
             <div class="col-md-2">
                 <button type="button" class="btn btn-primary" (click)="AddHobby()">Add Hobby</button>
             </div>
-            <div class="col-md-2" *ngFor="let hobby of studentEditForm.get('Hobbies').controls;let i=index">
+            <div class="col-md-2" *ngFor="let hobby of hobbies.controls;let i=index">
                 <input type="text" class="form-control" [formControlName]="i">
             </div>
         </div>
-        <div >
-            <div class="card border-primary" style="margin-top: 10px;">
-                <div class="row" formGroupName="Address">
+        <div formArrayName="Addresses">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" (click)="AddAddress()">Add Address</button>
+            </div>
+            <div class="card border-primary" style="margin-top: 10px;" *ngFor="let address of addresses.controls;let i=index" [formGroupName]="i" >
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="AddLine1">Add Line 1</label>
