@@ -3,19 +3,140 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                  <label for="FirstName">First Name</label>
-                  <input type="text" class="form-control" formControlName="FirstName" id="FirstName" aria-describedby="helpId" placeholder="First Name">
-                  <small id="helpId" class="form-text text-muted">First Name</small>
+                    <label for="FirstName">First Name</label>
+                    <input type="text" class="form-control" formControlName="FirstName" id="FirstName"
+                        aria-describedby="helpId" placeholder="First Name">
+                    <small id="helpId" class="form-text text-muted">First Name</small>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="LastName">Last Name</label>
-                    <input type="text" class="form-control" id="LastName" formControlName="LastName" aria-describedby="helpId" placeholder="Last Name">
+                    <input type="text" class="form-control" id="LastName" formControlName="LastName"
+                        aria-describedby="helpId" placeholder="Last Name">
                     <small id="helpId" class="form-text text-muted">Last Name</small>
-                  </div>
-            </div> 
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                Notification Type:
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" formControlName="NotificationType" value="email">
+                        Email
+                        <input class="form-check-input" type="radio" formControlName="NotificationType" value="mobile">
+                        Mobile No
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="EmailId">Email Id</label>
+                    <input type="email" class="form-control" id="EmailId" formControlName="EmailId"
+                        aria-describedby="helpId" placeholder="Email Id">
+                    <small id="helpId" class="form-text text-muted">Email Id</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="MobileNo">Mobile No</label>
+                    <input type="text" class="form-control" id="MobileNo" formControlName="MobileNo"
+                        aria-describedby="helpId" placeholder="Mobile No">
+                    <small id="helpId" class="form-text text-muted">Mobile No</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" formControlName="TermsAndConditions"> Terms and
+                        Conditions
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Skills">Skills</label>
+                    <select multiple class="form-control" formControlName="Skills">
+                        <option>Angular</option>
+                        <option>ASP.Net</option>
+                        <option>Java</option>
+                        <option>Php</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Comments">Comments</label>
+                    <textarea class="form-control" formControlName="Comments" rows="3"></textarea>
+                </div>
+            </div>
         </div>
+        <div class="row" formArrayName="Hobbies">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" (click)="AddHobby()">Add Hobby</button>
+            </div>
+            <div class="col-md-2" *ngFor="let hobby of studentEditForm.get('Hobbies').controls;let i=index">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
+        </div>
+        <div >
+            <div class="card border-primary" style="margin-top: 10px;">
+                <div class="row" formGroupName="Address">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="AddLine1">Add Line 1</label>
+                            <input type="text" class="form-control" id="AddLine1" formControlName="AddLine1"
+                                aria-describedby="helpId" placeholder="Add Line 1">
+                            <small id="helpId" class="form-text text-muted">Add Line 1</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="AddLine2">Add Line 2</label>
+                            <input type="text" class="form-control" id="AddLine2" formControlName="AddLine2"
+                                aria-describedby="helpId" placeholder="Add Line 2">
+                            <small id="helpId" class="form-text text-muted">Add Line 2</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="AddLine1">Add Line 3</label>
+                            <input type="text" class="form-control" id="AddLine3" formControlName="AddLine3"
+                                aria-describedby="helpId" placeholder="Add Line 3">
+                            <small id="helpId" class="form-text text-muted">Add Line 3</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="City">City</label>
+                            <select class="form-control" id="City" formControlName="City">
+                                <option>Mumbai</option>
+                                <option>Kolkata</option>
+                                <option>Bengaluru</option>
+                                <option>Pune</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="State">State</label>
+                            <select class="form-control" id="State" formControlName="State">
+                                <option>Maharashtra</option>
+                                <option>West Bengal</option>
+                                <option>Karnataka</option>
+                                <option>Pune</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
