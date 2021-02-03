@@ -7,6 +7,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { StudentEditComponent } from './student-edit/student-edit.component';
 import { StudentAddComponent } from './student-add/student-add.component';
 import { StudentGuard } from './services/student.guard';
+import { StudentEditDeactivateGuard } from './services/studentedit-candeactivate.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
     children: [
       { path: "add", component: StudentAddComponent },
       { path: ":sid", component: StudentDetailsComponent, canActivate:[StudentGuard] }, //students/1
-      { path: ":id/edit", component: StudentEditComponent } //students/1/edit - Edit Component      
+      { path: ":id/edit", component: StudentEditComponent, canDeactivate:[StudentEditDeactivateGuard] } //students/1/edit - Edit Component      
     ]
   }
 ];

@@ -19,7 +19,7 @@ export const students: Student[] = [
         StudentId: 1,
         FirstName: "Ram",
         LastName: "Sharma",
-        MobileNo: "898848488",
+        MobileNo: "8988484888",
         EmailId: "ram@gmail.com",
         NotificationType: "email",
         Address: {
@@ -35,7 +35,7 @@ export const students: Student[] = [
         StudentId: 2,
         FirstName: "Amol",
         LastName: "Pathak",
-        MobileNo: "9855896899",
+        MobileNo: "8988484888",
         EmailId: "amol@gmail.com",
         NotificationType: "email",
         Address: {
@@ -51,7 +51,7 @@ export const students: Student[] = [
         StudentId: 3,
         FirstName: "Subhasis",
         LastName: "Dutta",
-        MobileNo: "858589658",
+        MobileNo: "8988484888",
         EmailId: "subhasis@gmail.com",
         NotificationType: "mobile",
         Address: {
