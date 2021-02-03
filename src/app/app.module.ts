@@ -20,6 +20,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { StudentsModule } from './students/students.module';
 import { SignupComponent } from './signup/signup.component';
 import { MaxMinDirective } from './shared/directives/max-min.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PrimengModule } from './shared/primeng/primeng.module';
+import { MaterialModule } from './shared/material/material.module';
 
 
 const routes:Route[] = [
@@ -56,7 +59,10 @@ const routes:Route[] = [
     BrowserModule,
     FormsModule,
     StudentsModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    BrowserAnimationsModule,
+    PrimengModule,
+    MaterialModule
   ],
   providers: [
     LoggerService,

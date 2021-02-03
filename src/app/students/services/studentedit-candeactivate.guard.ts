@@ -16,5 +16,6 @@ export class StudentEditDeactivateGuard implements CanDeactivate<StudentEditComp
             }
             return false;
         }
+        return true;
     }
 }
