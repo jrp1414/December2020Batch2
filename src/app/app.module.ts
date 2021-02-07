@@ -23,11 +23,19 @@ import { MaxMinDirective } from './shared/directives/max-min.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimengModule } from './shared/primeng/primeng.module';
 import { MaterialModule } from './shared/material/material.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MessageService } from 'primeng/api';
 
 
 const routes:Route[] = [
-  {path:"",component: HomeComponent},
-  {path:"home",component:HomeComponent},
+  {path:"",component: DashboardComponent},
+  {path:"home",component:DashboardComponent},
   {path:"products",component: ProductsComponent},
   {path:"productdetails/:id",component: ProductDetailsComponent}, //productdetails/45
   {path:"signup",component: SignupComponent},
@@ -53,7 +61,8 @@ const routes:Route[] = [
     HomeComponent,
     ProductDetailsComponent,
     SignupComponent,
-    MaxMinDirective
+    MaxMinDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +71,13 @@ const routes:Route[] = [
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     PrimengModule,
-    MaterialModule
+    MaterialModule,
+    MatGridListModule,
+    LayoutModule
   ],
   providers: [
     LoggerService,
+    MessageService
     // ProductService
   ],
   bootstrap: [AppComponent]

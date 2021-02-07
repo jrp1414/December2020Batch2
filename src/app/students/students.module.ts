@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../shared/material/material.module';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { MessageService } from 'primeng/api';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     PrimengModule,
     MaterialModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
   ],
   providers:[

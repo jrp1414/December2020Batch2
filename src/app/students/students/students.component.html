@@ -6,6 +6,9 @@
                     <li class="list-group-item" *ngFor="let student of students">
                         <a [routerLink]="[student.StudentId]">{{student.FirstName+" "+student.LastName}}</a>
                     </li>
+                    <!-- <li class="list-group-item">
+                        <a [routerLink]="[565]">Invalid Student Id</a>
+                    </li> -->
                     <li class="list-group-item" >
                         <button type="button" (click)="showSuccess()" class="btn btn-primary">Toast Example</button>
                     </li>

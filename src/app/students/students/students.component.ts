@@ -10,13 +10,16 @@ import { StudentService } from '../services/student.service';
 })
 export class StudentsComponent implements OnInit {
 
-  students: Student[];
+  students: Student[]=[];
   firstStudentId: number;
   constructor(private ss: StudentService,private messageService: MessageService, private primengConfig: PrimeNGConfig) {
-    this.students = this.ss.getStudents();
+    // this.students = this.ss.getStudents();    
   }
 
   ngOnInit(): void {
+    this.ss.getStudents().subscribe((resp)=>{
+      this.students = resp;
+    });
     this.primengConfig.ripple = true;
   }
   showSuccess() {

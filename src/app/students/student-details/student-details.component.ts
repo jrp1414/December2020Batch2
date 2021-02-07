@@ -9,12 +9,14 @@ import { StudentService } from '../services/student.service';
   styles: []
 })
 export class StudentDetailsComponent implements OnInit {
-  student:Student;
-  constructor(private ss:StudentService,private route:ActivatedRoute) { }
+  student: Student;
+  constructor(private ss: StudentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((parms)=>{
-      this.student = this.ss.getStudent(parms.sid);
+    this.route.params.subscribe((parms) => {
+      this.ss.getStudent(parms.sid).subscribe((resp) => {
+        this.student = resp;
+      });
     });
   }
 
