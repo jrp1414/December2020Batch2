@@ -3,8 +3,14 @@
         <div class="row">
             <div class="col-md-2">
                 <ul class="list-group">
+                    <li class="list-group-item">
+                        <a routerLink="add">Add Student</a>
+                    </li>
                     <li class="list-group-item" *ngFor="let student of students">
                         <a [routerLink]="[student.StudentId]">{{student.FirstName+" "+student.LastName}}</a>
+                        <button class="close" type="button" (click)="DeleteStudent(student)" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
                     </li>
                     <!-- <li class="list-group-item">
                         <a [routerLink]="[565]">Invalid Student Id</a>
@@ -16,8 +22,28 @@
             </div>
             <div class="col-md-10">
                 <!-- <mat-spinner></mat-spinner> -->
-                <router-outlet></router-outlet>
+                <router-outlet></router-outlet>                                
             </div>
         </div>
     </div>
 </div>
+
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-success"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

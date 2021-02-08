@@ -77,6 +77,7 @@ export class StudentEditComponent implements OnInit {
       ...this.studentEditForm.value,
       StudentId: this.student.StudentId
     }).subscribe((resp) => {
+      this.ss.notify.emit(true);
       this.router.navigate(["students"]);
     });
   }

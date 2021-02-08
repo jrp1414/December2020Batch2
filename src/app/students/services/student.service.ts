@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Student, students } from './student.data';
 
@@ -15,6 +15,7 @@ export class StudentService {
   baseUrl: string = "http://localhost:44319/";
 
   studentId: number;
+  notify:EventEmitter<boolean> = new EventEmitter();
   getStudents(): Observable<any> {
     return this.http.get(this.baseUrl + "GetStudents");
   }
@@ -23,11 +24,15 @@ export class StudentService {
     return this.http.get(this.baseUrl + "GetStudent/" + id);
   }
 
-  updateStudent(student:Student): Observable<any> {
-    return this.http.put(this.baseUrl + "UpdateStudent",student);
+  updateStudent(student: Student): Observable<any> {
+    return this.http.put(this.baseUrl + "UpdateStudent", student);
+  }
+
+  addStudent(student: Student): Observable<any> {
+    return this.http.post(this.baseUrl + "AddStudent", student);
   }
 
   DeleteStudent(id: number) {
-    this.studentsList = this.studentsList.filter((s) => s.StudentId != id);
+    return this.http.delete(this.baseUrl + "DeleteStudent/" + id);
   }
 }

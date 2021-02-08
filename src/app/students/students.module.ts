@@ -20,7 +20,7 @@ const routes: Routes = [
     children: [
       { path: "add", component: StudentAddComponent },
       { path: ":sid", component: StudentDetailsComponent, canActivate: [StudentGuard] }, //students/1
-      { path: ":id/edit", component: StudentEditComponent, canDeactivate: [StudentEditDeactivateGuard] } //students/1/edit - Edit Component      
+      { path: ":id/edit", component: StudentEditComponent  } //students/1/edit - Edit Component      canDeactivate: [StudentEditDeactivateGuard]
     ]
   }
 ];
