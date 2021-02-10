@@ -13,14 +13,16 @@ import { MaterialModule } from '../shared/material/material.module';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentsResolver } from './services/students.resolver';
+import { StudentDetailsResolver } from './services/student-details.resolver';
 
 const routes: Routes = [
   {
-    path: "students", component: StudentsComponent,
+    path: "students", component: StudentsComponent, resolve: { stds: StudentsResolver },
     children: [
       { path: "add", component: StudentAddComponent },
-      { path: ":sid", component: StudentDetailsComponent, canActivate: [StudentGuard] }, //students/1
-      { path: ":id/edit", component: StudentEditComponent  } //students/1/edit - Edit Component      canDeactivate: [StudentEditDeactivateGuard]
+      { path: ":id", component: StudentDetailsComponent, resolve: { student: StudentDetailsResolver }, canActivate: [StudentGuard] }, //students/1
+      { path: ":id/edit", component: StudentEditComponent, resolve: { student: StudentDetailsResolver } } //students/1/edit - Edit Component      canDeactivate: [StudentEditDeactivateGuard]
     ]
   }
 ];
@@ -41,7 +43,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  providers:[
+  providers: [
     MessageService
   ]
 })

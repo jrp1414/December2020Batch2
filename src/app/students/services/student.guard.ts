@@ -12,7 +12,7 @@ export class StudentGuard implements CanActivate{
     
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let student = this.ss.getStudent(route.params.sid);
+        let student = this.ss.getStudent(route.params.id);
         if (student) {
             // this.ms.add({severity:'error', summary: 'Error', detail: 'Invalid Student Id'});
             return true;

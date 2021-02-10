@@ -16,7 +16,7 @@ export class StudentEditComponent implements OnInit {
   student: Student;
 
   constructor(public route: ActivatedRoute, private ss: StudentService,
-    public fb: FormBuilder,private router:Router) { }
+    public fb: FormBuilder, private router: Router) { }
   hobbies: FormArray = this.fb.array([
   ]);
   addresses: FormArray = this.fb.array([
@@ -29,46 +29,29 @@ export class StudentEditComponent implements OnInit {
     })
   ]);
   ngOnInit(): void {
-    this.route.params.subscribe((parms) => {
-      // this.studentEditForm = this.fb.group({
-      //   FirstName: this.fb.control(this.student.FirstName, [Validators.required, Validators.minLength(3)]),
-      //   LastName: this.fb.control(this.student.LastName, Validators.required),
-      //   MobileNo: this.fb.control(this.student.MobileNo,Validators.pattern("[0-9 ]{10}")),
-      //   EmailId: this.fb.control(this.student.EmailId, [Validators.required, Validators.email]),
-      //   NotificationType: this.fb.control(this.student.NotificationType),
-      //   Address: this.fb.group({
-      //     AddLine1: this.fb.control(this.student.Address.AddLine1),
-      //     AddLine2: this.fb.control(this.student.Address.AddLine2),
-      //     AddLine3: this.fb.control(this.student.Address.AddLine3),
-      //     City: this.fb.control(this.student.Address.City),
-      //     State: this.fb.control(this.student.Address.State)
-      //   })
-      // });
+    this.studentEditForm = this.fb.group({
+      FirstName: ["", [Validators.required, Validators.minLength(3)]],
+      LastName: this.fb.control("", Validators.required),
+      MobileNo: this.fb.control("", Validators.pattern("[0-9 ]{10}")),
+      EmailId: this.fb.control("", [Validators.required, Validators.email]),
+      NotificationType: this.fb.control('email'),
+      Address: this.fb.group({
+        AddLine1: this.fb.control(""),
+        AddLine2: this.fb.control(""),
+        AddLine3: this.fb.control(""),
+        City: this.fb.control(""),
+        State: this.fb.control("")
+      })
+    });
 
-      this.studentEditForm = this.fb.group({
-        FirstName: ["", [Validators.required, Validators.minLength(3)]],
-        LastName: this.fb.control("", Validators.required),
-        MobileNo: this.fb.control("", Validators.pattern("[0-9 ]{10}")),
-        EmailId: this.fb.control("", [Validators.required, Validators.email]),
-        NotificationType: this.fb.control('email'),
-        // Age: this.fb.control(0, Range(10, 25)), //RangeValidation,
-        Address: this.fb.group({
-          AddLine1: this.fb.control(""),
-          AddLine2: this.fb.control(""),
-          AddLine3: this.fb.control(""),
-          City: this.fb.control(""),
-          State: this.fb.control("")
-        })
-      });
-      this.ss.getStudent(parms.id).subscribe((resp) => {
-        this.student = resp;
-        this.studentEditForm.patchValue(this.student);
-      });
+    this.route.data.subscribe((data) => {
+      this.student = data.student;
+      this.studentEditForm.patchValue(this.student);
+    });
 
 
-      this.studentEditForm.get("NotificationType").valueChanges.subscribe((value) => {
-        this.SetNotification(value);
-      });
+    this.studentEditForm.get("NotificationType").valueChanges.subscribe((value) => {
+      this.SetNotification(value);
     });
   }
 

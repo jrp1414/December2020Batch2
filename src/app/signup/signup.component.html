@@ -1,39 +1,16 @@
 <!-- <form #signup="ngForm" (ngSubmit)="OnSubmit()" > -->
 <form #signup="ngForm" (ngSubmit)="OnSubmit(signup.value)">
-
-    <!-- <div class="row">
-        <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item">Touched : {{signup.touched}}</li>
-                <li class="list-group-item">Dirty: {{signup.dirty}}</li>
-                <li class="list-group-item">Valid : {{signup.valid}}</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item">Untouched: {{signup.untouched}}</li>
-                <li class="list-group-item">Pristine: {{signup.pristine}}</li>
-                <li class="list-group-item">Invalid {{signup.invalid}}</li>
-            </ul>
-        </div>
-    </div> -->
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="FirstName">First Name</label>
                 <input type="text" class="form-control" required minlength="3" name="FirstName" ngModel
                     #FirstName="ngModel" id="FirstName" aria-describedby="helpId" placeholder="First Name">
-                <!-- <small id="helpId" class="alert alert-danger" *ngIf="!FirstName.valid && FirstName.touched">Enter First Name</small> -->
+                
                 <small id="helpId" class="alert alert-danger"
                     *ngIf="FirstName.errors?.required && FirstName.touched">Enter First Name</small>
                 <small id="helpId" class="alert alert-danger" *ngIf="FirstName.errors?.minlength">Minimum 3 characters
                     required</small>
-                <!-- Touched : {{FirstName.touched}}
-                UnTouched : {{FirstName.untouched}}
-                valid : {{FirstName.valid}}
-                Dirty : {{FirstName.dirty}}
-                Pristine: {{FirstName.pristine}}
-                Error: {{FirstName.errors | json}} -->
             </div>
         </div>
         <div class="col-md-6">
@@ -85,61 +62,14 @@
                 <small id="helpId" class="form-text text-muted">Confirm Password</small>
             </div>
         </div>
-    </div>
-    <div class="row" ngModelGroup="Details">
-        <div class="col-md-6">
-            <div class="form-check form-check-inline">
-                <label>Gender : </label>
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="Gender" ngModel value="male"> Male
-                    <input class="form-check-input" type="radio" name="Gender" ngModel value="female"> Female
-                </label>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" ngModel name="TermsAndConditions"> Terms and
-                    Conditions
-                </label>
-            </div>
-        </div>
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="City">City</label>
-                <select class="form-control" ngModel name="City">
-                    <option>Pune</option>
-                    <option>Mumbai</option>
-                    <option>Kolkata</option>
-                    <option>Chennai</option>
-                    <option>Delhi</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Skills">Skills</label>
-                <select multiple class="form-control" ngModel name="Skills">
-                    <option>Angular</option>
-                    <option>Javascript</option>
-                    <option>Dot Net</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                </select>
+              <label for="Address">Address</label>
+              <textarea class="form-control" name="Address" ngModel id="Address" rows="3"></textarea>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="Age">Age</label>
-            <input type="number" [maxmin]="{min:10,max:25}" class="form-control" #Age="ngModel" name="Age" id="Age"
-                ngModel aria-describedby="helpId" placeholder="Age">
-            <small id="helpId" class="alert alert-danger" *ngIf="Age.errors?.max">Max age should be 25</small>
-            <small id="helpId" class="alert alert-danger" *ngIf="Age.errors?.min && Age.touched">Min age should be 10</small>
-            <!-- Error: {{MobileNo.errors | json}} -->
-        </div>
-    </div>
+    
     <button [disabled]="signup.invalid" type="submit" class="btn btn-primary">Submit</button>
 </form>

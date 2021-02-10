@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { Student } from '../services/student.data';
 import { StudentGuard } from '../services/student.guard';
@@ -13,12 +14,15 @@ export class StudentsComponent implements OnInit {
 
   students: Student[] = [];
   firstStudentId: number;
-  constructor(private ss: StudentService, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
+  constructor(private ss: StudentService, private route: ActivatedRoute, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
     // this.students = this.ss.getStudents();    
   }
 
   ngOnInit(): void {
-    this.refreshStudentsList();
+    // this.refreshStudentsList();
+    this.route.data.subscribe((data) => {
+      this.students = data.stds;
+    });
     this.ss.notify.subscribe((flag) => {
       this.refreshStudentsList();
     });
