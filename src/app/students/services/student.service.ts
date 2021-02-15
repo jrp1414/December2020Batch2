@@ -31,22 +31,22 @@ export class StudentService {
   studentId: number;
   notify: EventEmitter<boolean> = new EventEmitter();
   getStudents(): Observable<any> {
-    return this.http.get(this.baseUrl + "GetStudents", this.setOptions());
+    return this.http.get(this.baseUrl + "GetStudents");
   }
 
   getStudent(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + "GetStudent/" + id, this.setOptions());
+    return this.http.get(this.baseUrl + "GetStudent/" + id);
   }
 
   updateStudent(student: Student): Observable<any> {
-    return this.http.put(this.baseUrl + "UpdateStudent", student, this.setOptions());
+    return this.http.put(this.baseUrl + "UpdateStudent", student);
   }
 
   addStudent(student: Student): Observable<any> {
-    return this.http.post(this.baseUrl + "AddStudent", student, this.setOptions());
+    return this.http.post(this.baseUrl + "AddStudent", student);
   }
 
   DeleteStudent(id: number) {
-    return this.http.delete(this.baseUrl + "DeleteStudent/" + id, this.setOptions());
+    return this.http.delete(this.baseUrl + "DeleteStudent/" + id);
   }
 }

@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Route, RouterModule } from '@angular/router';
 
-import {AppComponent,EventBindingComponent,HeaderComponent,StringInterpolationComponent,
-        PropertyBindingComponent,TwowayBindingComponent,HomeComponent} from "./components.index";
+import {
+  AppComponent, EventBindingComponent, HeaderComponent, StringInterpolationComponent,
+  PropertyBindingComponent, TwowayBindingComponent, HomeComponent
+} from "./components.index";
 
 import { ProductsComponent } from './products/products.component';
 import { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
@@ -31,14 +33,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MessageService } from 'primeng/api';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { December2InterCeptor } from './students/services/http.interceptor';
 
 
-const routes:Route[] = [
-  {path:"",component: DashboardComponent},
-  {path:"home",component:DashboardComponent},
-  {path:"products",component: ProductsComponent},
-  {path:"productdetails/:id",component: ProductDetailsComponent}, //productdetails/45
-  {path:"signup",component: SignupComponent},
+const routes: Route[] = [
+  { path: "", component: DashboardComponent },
+  { path: "home", component: DashboardComponent },
+  { path: "products", component: ProductsComponent },
+  { path: "productdetails/:id", component: ProductDetailsComponent }, //productdetails/45
+  { path: "signup", component: SignupComponent },
   // {path:"**",redirectTo:"home"}
 ];
 
@@ -77,7 +81,8 @@ const routes:Route[] = [
   ],
   providers: [
     LoggerService,
-    MessageService
+    MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: December2InterCeptor, multi: true }
     // ProductService
   ],
   bootstrap: [AppComponent]
