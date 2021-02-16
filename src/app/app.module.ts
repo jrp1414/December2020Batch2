@@ -35,6 +35,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MessageService } from 'primeng/api';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { December2InterCeptor } from './students/services/http.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { studentReducer } from './store/student.reducer';
 
 
 const routes: Route[] = [
@@ -77,7 +79,8 @@ const routes: Route[] = [
     PrimengModule,
     MaterialModule,
     MatGridListModule,
-    LayoutModule
+    LayoutModule,
+    StoreModule.forRoot({studentR:studentReducer})
   ],
   providers: [
     LoggerService,
