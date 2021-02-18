@@ -5,3 +5,7 @@ export * from "./string-interpolation/string-interpolation.component";
 export * from "./property-binding/property-binding.component";
 export { TwowayBindingComponent } from './twoway-binding/twoway-binding.component';
 export * from "./home/home.component";
+export { ProductsComponent } from './products/products.component';
+export { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
+export { TempProductsComponent } from './temp-products/temp-products.component';
+export { DashboardComponent } from './dashboard/dashboard.component';
