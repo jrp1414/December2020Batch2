@@ -21,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxsModule } from '@ngxs/store';
 import { CartState } from './ngxs-store/product.state';
 import { environment } from 'src/environments/environment';
+import {TemplateOutletExampleComponent } from './template-outlet-example/template-outlet-example.component';
+import { CompleteComponent, NgComponentOutletCompleteExample } from './component-outlet-example/component-outlet-example.component';
 
 
 @NgModule({
@@ -37,7 +39,10 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     ProductDetailsComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    TemplateOutletExampleComponent,
+    CompleteComponent,
+    NgComponentOutletCompleteExample  
   ],
   imports: [
     BrowserModule,
