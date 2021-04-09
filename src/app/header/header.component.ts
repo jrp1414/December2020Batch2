@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     private message: MessageService,private router:Router) { }
 
   ngOnInit(): void {
-    this.auth.isAuthenticated = localStorage.getItem("token").length > 0;
+    this.auth.isAuthenticated = localStorage.getItem("token")?.length > 0;
   }
 
   onSignIn(signInForm: NgForm) {

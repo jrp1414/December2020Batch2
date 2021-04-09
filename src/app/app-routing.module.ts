@@ -1,8 +1,9 @@
-import { Route, RouterModule } from '@angular/router';
+import { NoPreloading, PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardComponent, ProductsComponent } from './components.index';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SignupComponent } from './signup/signup.component';
+import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 
 const routes: Route[] = [
     { path: "", component: DashboardComponent },
@@ -16,9 +17,11 @@ const routes: Route[] = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        QuicklinkModule,
+        RouterModule.forRoot(routes,{preloadingStrategy:QuicklinkStrategy})
     ],
     exports: [
+        QuicklinkModule,
         RouterModule
     ],
 })

@@ -26,10 +26,8 @@ export class ProductThumbnailComponent implements OnInit {
     
   }
 
-  SendToParent(){
-    this.logger.log("Testing in Child Component");
-    var name = prompt("Enter Name");
-    this.sendData.emit(name);
+  SendToParent(product:Product){
+    this.sendData.emit(product.productName);
   }
 
 }

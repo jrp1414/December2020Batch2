@@ -6,7 +6,7 @@
     <p class="card-text">{{product.description?.descText | lowercase | shorten}}</p>
     <p class="card-text">Release Date: {{product.releaseDate | date : 'MM/dd/yyyy' }}</p>
     <p class="card-text">Price: {{product.price | currency :'INR':"code":'1.1-1' }}</p>
-    <button type="button" class="btn btn-primary" (click)="SendToParent()">Send to Parent</button>
+    <button type="button" class="btn btn-primary" (click)="SendToParent(product)">Send to Parent</button>
     <!-- {{product |json}} -->
   </div>
 </div>

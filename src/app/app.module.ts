@@ -18,6 +18,10 @@ import { studentReducer } from './store/student.reducer';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxsModule } from '@ngxs/store';
+import { CartState } from './ngxs-store/product.state';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxsModule.forRoot([CartState],{ developmentMode: !environment.production }),
     StoreModule.forRoot({ studentR: studentReducer })
   ],
   providers: [

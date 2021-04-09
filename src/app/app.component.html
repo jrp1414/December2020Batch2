@@ -9,4 +9,23 @@
 <mat-progress-bar *ngIf="loading" class="example-margin" color="warn" mode="indeterminate">
 </mat-progress-bar>
 <p-toast></p-toast>
+<button type="button" (click)="Test()" class="btn btn-primary">Test</button>
+<div class="row">
+    <div class="col-md-2">
+        <input type="number" class="form-control" [(ngModel)]="number" placeholder="Enter any number" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" (click)="calcFib()">Calc. Fib</button>
+    </div>
+    <div class="col-md-2">{{output}}</div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <input type="number" class="form-control" [(ngModel)]="numberWorker" placeholder="Enter any number" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" (click)="calcFibWorker()">Calc. Fib using worker</button>
+    </div>
+    <div class="col-md-2">{{outputWorker}}</div>
+</div>
 <router-outlet></router-outlet>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Select, Selector, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { AddCart, DeleteCart } from '../ngxs-store/product.action';
+import { CartState, CartStateModel } from '../ngxs-store/product.state';
 import { LoggerService } from '../services/logger.service';
 import { Description, Product } from '../services/product';
 import { ProductService } from '../services/product.service';
@@ -9,40 +13,36 @@ import { ProductService } from '../services/product.service';
   styleUrls: [
     `./products.component.css`
   ],
-  providers:[
+  providers: [
     // LoggerService,
     //ProductService
   ]
 })
-export class ProductsComponent {
-  products: Product[];
-  filterText:string="";
-  constructor(private logger:LoggerService,private ps:ProductService) {
-    // for (let i = 0; i < this.products.length; i++) {
-    //   console.log(this.products[i]);
-    // }
+export class ProductsComponent implements OnInit {
+  products: Product[] = [];
+  filterText: string = "";
+  cart: string[] = [];
 
-    // for (let i in this.products) {
-    //   console.log(this.products[i]);
-    // }
+  @Select(CartState) cart$: Observable<CartStateModel>;
 
-    // this.products.forEach(product => {
-    //   console.log(product);
-    // });
-
-    // for (let prod of this.products) {
-    //   console.log(prod);
-    // }
-
+  constructor(private logger: LoggerService, private ps: ProductService,
+    private store: Store) {
+    // this.ps.getProducts().subscribe((products)=>{console.log(products)});
     this.products = this.ps.getProducts();
   }
+  ngOnInit(): void {
+    this.cart$.subscribe(c => this.cart = c.cart); 
 
-  ReceivedData(data){
-    this.logger.log("Logged from Parent Component");
-    console.log(data);
+  }
+  ReceivedData(data) {
+    this.store.dispatch(new AddCart(data));
   }
 
-  TestPipe(){
+  DeleteFromCart(cartP){
+    this.store.dispatch(new DeleteCart(cartP));
+  }
+
+  TestPipe() {
     this.ps.notify.emit("Notification sent");
     //this.products.push(new Product(11,"Test Pipe Product","GFN-0034",new Date('25/12/2020'),25.52,5,"",new Description("Sample Desc","test@gmail.com"),true));
   }
