@@ -25,10 +25,10 @@ export class ProductsComponent implements OnInit {
 
   @Select(CartState) cart$: Observable<CartStateModel>;
 
-  constructor(private logger: LoggerService, private ps: ProductService,
+  constructor(public logger: LoggerService, public ps: ProductService,
     private store: Store) {
     // this.ps.getProducts().subscribe((products)=>{console.log(products)});
-    this.products = this.ps.getProducts();
+    this.ps.getProducts().subscribe(p=>this.products=<Product[]>p);
   }
   ngOnInit(): void {
     this.cart$.subscribe(c => this.cart = c.cart); 
